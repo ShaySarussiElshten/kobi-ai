@@ -1,4 +1,8 @@
-export function MenuIcon({ className }) {
+interface IconProps {
+  className?: string
+}
+
+export function MenuIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M3 5H17" />
@@ -8,7 +12,7 @@ export function MenuIcon({ className }) {
   )
 }
 
-export function CloseIcon({ className }) {
+export function CloseIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M5 5L15 15" />
@@ -17,7 +21,7 @@ export function CloseIcon({ className }) {
   )
 }
 
-export function HomeIcon({ className }) {
+export function HomeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 10.5L10 4L17 10.5" />
@@ -26,7 +30,7 @@ export function HomeIcon({ className }) {
   )
 }
 
-export function GridIcon({ className }) {
+export function GridIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="6" height="6" rx="1" />
@@ -37,7 +41,7 @@ export function GridIcon({ className }) {
   )
 }
 
-export function SearchIcon({ className }) {
+export function SearchIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="9" cy="9" r="5" />
@@ -46,7 +50,7 @@ export function SearchIcon({ className }) {
   )
 }
 
-export function FlaskIcon({ className }) {
+export function FlaskIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7.5 3H12.5" />
@@ -55,7 +59,7 @@ export function FlaskIcon({ className }) {
   )
 }
 
-export function PenIcon({ className }) {
+export function PenIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M13.5 3.5L16.5 6.5L6.5 16.5L3 17L3.5 13.5L13.5 3.5Z" />
@@ -63,7 +67,7 @@ export function PenIcon({ className }) {
   )
 }
 
-export function FileIcon({ className }) {
+export function FileIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 3H12L15 6V17H5V3Z" />
@@ -74,7 +78,7 @@ export function FileIcon({ className }) {
   )
 }
 
-export function FilterIcon({ className }) {
+export function FilterIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 4H14" />
@@ -84,7 +88,7 @@ export function FilterIcon({ className }) {
   )
 }
 
-export function ClockIcon({ className }) {
+export function ClockIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="8" cy="8" r="6" />
@@ -93,7 +97,7 @@ export function ClockIcon({ className }) {
   )
 }
 
-export function SparklesIcon({ className }) {
+export function SparklesIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5L8 2Z" />
@@ -101,7 +105,7 @@ export function SparklesIcon({ className }) {
   )
 }
 
-export function BookmarkIcon({ className }) {
+export function BookmarkIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 2H12V14L8 11L4 14V2Z" />
@@ -109,7 +113,7 @@ export function BookmarkIcon({ className }) {
   )
 }
 
-export function ShareIcon({ className }) {
+export function ShareIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 9V13H12V9" />
@@ -119,7 +123,7 @@ export function ShareIcon({ className }) {
   )
 }
 
-export function ExternalLinkIcon({ className }) {
+export function ExternalLinkIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 9V13H3V4H7" />
@@ -129,7 +133,7 @@ export function ExternalLinkIcon({ className }) {
   )
 }
 
-export function TrendingIcon({ className }) {
+export function TrendingIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 12L6 8L9 11L14 4" />
@@ -138,7 +142,7 @@ export function TrendingIcon({ className }) {
   )
 }
 
-export function LoaderIcon({ className }) {
+export function LoaderIcon({ className }: IconProps) {
   return (
     <svg className={`${className} animate-spin`} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M8 2A6 6 0 1 1 2 8" />
@@ -146,7 +150,7 @@ export function LoaderIcon({ className }) {
   )
 }
 
-export function ArrowLeftIcon({ className }) {
+export function ArrowLeftIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 3L5 8L10 13" />
@@ -154,7 +158,7 @@ export function ArrowLeftIcon({ className }) {
   )
 }
 
-export function ChevronRightIcon({ className }) {
+export function ChevronRightIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 8 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 1L6 6L1 11" />
@@ -162,7 +166,7 @@ export function ChevronRightIcon({ className }) {
   )
 }
 
-export function BoltIcon({ className }) {
+export function BoltIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M11 2L4 11H10L9 18L16 9H10L11 2Z" />
@@ -170,7 +174,7 @@ export function BoltIcon({ className }) {
   )
 }
 
-export function SummarizeIcon({ className }) {
+export function SummarizeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M1 1H15" />
@@ -181,7 +185,7 @@ export function SummarizeIcon({ className }) {
   )
 }
 
-export function RewriteIcon({ className }) {
+export function RewriteIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 1L13 4L5 12L1 13L2 9L10 1Z" />
@@ -189,7 +193,7 @@ export function RewriteIcon({ className }) {
   )
 }
 
-export function NewPostIcon({ className }) {
+export function NewPostIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="12" height="12" rx="2" />
@@ -199,7 +203,7 @@ export function NewPostIcon({ className }) {
   )
 }
 
-export function ChevronDownIcon({ className }) {
+export function ChevronDownIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 1L6 6L11 1" />
@@ -207,7 +211,7 @@ export function ChevronDownIcon({ className }) {
   )
 }
 
-export function OutlineIcon({ className }) {
+export function OutlineIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 18 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M6 2H16" />
@@ -220,7 +224,7 @@ export function OutlineIcon({ className }) {
   )
 }
 
-export function BoldIcon({ className }) {
+export function BoldIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 16" fill="currentColor">
       <path d="M0 0H6.5C8.98 0 11 2.02 11 4.5C11 5.87 10.36 7.09 9.38 7.88C10.85 8.65 11.87 10.2 11.87 12C11.87 14.21 10.08 16 7.87 16H0V0ZM3 6.5H6.5C7.6 6.5 8.5 5.6 8.5 4.5C8.5 3.4 7.6 2.5 6.5 2.5H3V6.5ZM3 13.5H7.87C8.97 13.5 9.87 12.6 9.87 11.5C9.87 10.4 8.97 9.5 7.87 9.5H3V13.5Z" />
@@ -228,7 +232,7 @@ export function BoldIcon({ className }) {
   )
 }
 
-export function ItalicIcon({ className }) {
+export function ItalicIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 16" fill="currentColor">
       <path d="M4 0H12V2.5H9.17L5.83 13.5H8V16H0V13.5H2.83L6.17 2.5H4V0Z" />
@@ -236,7 +240,7 @@ export function ItalicIcon({ className }) {
   )
 }
 
-export function ListUnorderedIcon({ className }) {
+export function ListUnorderedIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M5 2H15" />
@@ -249,7 +253,7 @@ export function ListUnorderedIcon({ className }) {
   )
 }
 
-export function ListOrderedIcon({ className }) {
+export function ListOrderedIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M5 2H15" />
@@ -262,7 +266,7 @@ export function ListOrderedIcon({ className }) {
   )
 }
 
-export function SendIcon({ className }) {
+export function SendIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 2L7 9" />
@@ -271,7 +275,7 @@ export function SendIcon({ className }) {
   )
 }
 
-export function LinkIcon({ className }) {
+export function LinkIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M6.5 9.5A3.5 3.5 0 0 0 9.5 11H11A3.5 3.5 0 0 0 11 4H9.5" />
@@ -280,7 +284,7 @@ export function LinkIcon({ className }) {
   )
 }
 
-export function BlockquoteIcon({ className }) {
+export function BlockquoteIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="currentColor">
       <path d="M3 3H7V7.5C7 9.43 5.66 11 3.5 12L2.5 10.8C4 10 4.5 9 4.5 8H3V3ZM9 3H13V7.5C13 9.43 11.66 11 9.5 12L8.5 10.8C10 10 10.5 9 10.5 8H9V3Z" />
@@ -288,7 +292,7 @@ export function BlockquoteIcon({ className }) {
   )
 }
 
-export function ImageIcon({ className }) {
+export function ImageIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="12" height="12" rx="2" />
@@ -298,7 +302,7 @@ export function ImageIcon({ className }) {
   )
 }
 
-export function CodeIcon({ className }) {
+export function CodeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 4L1 8L5 12" />
@@ -308,7 +312,7 @@ export function CodeIcon({ className }) {
   )
 }
 
-export function EyeIcon({ className }) {
+export function EyeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 8C1 8 3.5 3 8 3C12.5 3 15 8 15 8C15 8 12.5 13 8 13C3.5 13 1 8 1 8Z" />
@@ -317,7 +321,7 @@ export function EyeIcon({ className }) {
   )
 }
 
-export function CalendarIcon({ className }) {
+export function CalendarIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="3" width="12" height="11" rx="1.5" />
@@ -328,7 +332,7 @@ export function CalendarIcon({ className }) {
   )
 }
 
-export function LinkChainIcon({ className }) {
+export function LinkChainIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 4H6C3.79 4 2 5.79 2 8C2 10.21 3.79 12 6 12H8" />
@@ -338,7 +342,7 @@ export function LinkChainIcon({ className }) {
   )
 }
 
-export function ExpandIcon({ className }) {
+export function ExpandIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 3V13" />
@@ -348,7 +352,7 @@ export function ExpandIcon({ className }) {
   )
 }
 
-export function UploadIcon({ className }) {
+export function UploadIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 10V3" />
@@ -358,7 +362,7 @@ export function UploadIcon({ className }) {
   )
 }
 
-export function CommentIcon({ className }) {
+export function CommentIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 2H14V11H5L2 14V2Z" />
@@ -366,7 +370,7 @@ export function CommentIcon({ className }) {
   )
 }
 
-export function CopyIcon({ className }) {
+export function CopyIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="5" y="5" width="9" height="9" rx="1" />
@@ -375,7 +379,7 @@ export function CopyIcon({ className }) {
   )
 }
 
-export function TrashIcon({ className }) {
+export function TrashIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 4H13L12 14H4L3 4Z" />
@@ -385,7 +389,7 @@ export function TrashIcon({ className }) {
   )
 }
 
-export function MoreVerticalIcon({ className }) {
+export function MoreVerticalIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 4 16" fill="currentColor">
       <circle cx="2" cy="3" r="1.5" />
@@ -395,7 +399,7 @@ export function MoreVerticalIcon({ className }) {
   )
 }
 
-export function TrendUpIcon({ className }) {
+export function TrendUpIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 12L6 8L9 11L14 4" />
@@ -404,7 +408,7 @@ export function TrendUpIcon({ className }) {
   )
 }
 
-export function PlusIcon({ className }) {
+export function PlusIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
       <path d="M8 3V13" />

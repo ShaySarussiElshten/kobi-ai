@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   HomeIcon,
@@ -7,7 +8,19 @@ import {
   PenIcon,
   FileIcon,
   CloseIcon,
-} from './Icons.jsx'
+} from './Icons'
+
+interface SidebarProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+interface SidebarLinkProps {
+  to: string
+  icon: React.ComponentType<{ className?: string }>
+  label: string
+  onNavigate: () => void
+}
 
 const NAV_LINKS = [
   { to: '/', icon: HomeIcon, label: 'Home Feed (AI News)' },
@@ -21,7 +34,7 @@ const CONTENT_LINKS = [
   { to: '/my-posts', icon: FileIcon, label: 'My Posts' },
 ]
 
-export default function Sidebar({ isOpen, onClose }) {
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
     <>
       {isOpen && (
@@ -89,7 +102,7 @@ export default function Sidebar({ isOpen, onClose }) {
   )
 }
 
-function SidebarLink({ to, icon: Icon, label, onNavigate }) {
+function SidebarLink({ to, icon: Icon, label, onNavigate }: SidebarLinkProps) {
   return (
     <NavLink
       to={to}

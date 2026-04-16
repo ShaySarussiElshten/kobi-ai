@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import Sidebar from './components/Sidebar.jsx'
-import { MenuIcon } from './components/Icons.jsx'
-
+import Sidebar from './components/Sidebar'
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 

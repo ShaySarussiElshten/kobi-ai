@@ -15,7 +15,31 @@ import {
   PlusIcon,
   ArrowLeftIcon,
   ChevronRightIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface TabToggleProps {
+  activeTab: number
+  onTabChange: (index: number) => void
+}
+
+interface BulkActionsBarProps {
+  count: number
+}
+
+interface StatusBadgeProps {
+  status: PostStatus
+}
+
+interface MiniChartProps {
+  type: string
+  color: string
+}
+
+type PostStatus = 'published' | 'scheduled' | 'draft'
 
 const STATS = [
   { label: 'Total Views (30d)', value: '124,592', change: '+12.5%', sub: 'vs last month', glow: 'rgba(59,130,246,0.1)' },
@@ -23,7 +47,17 @@ const STATS = [
   { label: 'Published Posts', value: '48', change: null, sub: '4 drafts pending', glow: 'rgba(245,158,11,0.1)' },
 ]
 
-const POSTS = [
+const POSTS: Array<{
+  id: number
+  title: string
+  edited: string
+  status: PostStatus
+  category: string
+  views: string | null
+  comments: string | null
+  gradient: string | null
+  isSelected: boolean
+}> = [
   {
     id: 1,
     title: 'The Evolution of AI in Modern Design',
@@ -77,7 +111,7 @@ const STATUS_STYLES = {
 }
 
 export default function MyPostsPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
   const [activeTab, setActiveTab] = useState(0)
   const selectedCount = POSTS.filter((p) => p.isSelected).length
 
@@ -162,7 +196,7 @@ function StatsRow() {
   )
 }
 
-function MiniChart({ type, color }) {
+function MiniChart({ type, color }: MiniChartProps) {
   if (type === 'bar') {
     const heights = [18, 30, 24, 42, 36, 54, 24]
     return (
@@ -198,7 +232,7 @@ function MiniChart({ type, color }) {
   )
 }
 
-function TabToggle({ activeTab, onTabChange }) {
+function TabToggle({ activeTab, onTabChange }: TabToggleProps) {
   const tabs = ['Published (48)', 'Drafts (4)']
   return (
     <div className="flex items-center gap-1 p-1.5 bg-surface-elevated border border-border rounded-lg">
@@ -219,7 +253,7 @@ function TabToggle({ activeTab, onTabChange }) {
   )
 }
 
-function BulkActionsBar({ count }) {
+function BulkActionsBar({ count }: BulkActionsBarProps) {
   return (
     <div className="flex items-center justify-between p-3.5 mb-4 bg-surface-card border border-accent/30 rounded-lg">
       <span className="text-sm font-medium text-white">{count} posts selected</span>
@@ -334,7 +368,7 @@ function PostsTable() {
   )
 }
 
-function StatusBadge({ status }) {
+function StatusBadge({ status }: StatusBadgeProps) {
   const s = STATUS_STYLES[status]
   return (
     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-[10px] font-medium ${s.bg} ${s.text}`}>

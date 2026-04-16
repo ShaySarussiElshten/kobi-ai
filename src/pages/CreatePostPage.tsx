@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import {
   MenuIcon,
@@ -20,12 +20,36 @@ import {
   CalendarIcon,
   LinkChainIcon,
   CloseIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface HeaderProps {
+  onOpenSidebar: () => void
+}
+
+interface MetaRowProps {
+  icon: ReactNode
+  label: string
+  value: string
+  isText?: boolean
+}
+
+interface OrganizationSectionProps {
+  tags: string[]
+  onRemoveTag: (tag: string) => void
+}
+
+interface ToolbarButtonProps {
+  children: ReactNode
+}
 
 const INITIAL_TAGS = ['AI', 'Design']
 
 export default function CreatePostPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
 
   return (
     <>
@@ -38,7 +62,7 @@ export default function CreatePostPage() {
   )
 }
 
-function Header({ onOpenSidebar }) {
+function Header({ onOpenSidebar }: HeaderProps) {
   return (
     <header className="h-14 lg:h-16 shrink-0 flex items-center justify-between px-4 sm:px-6 lg:px-8 border-b border-border backdrop-blur-sm bg-surface/80 relative z-[2]">
       <div className="flex items-center gap-3 sm:gap-4">
@@ -117,7 +141,7 @@ function FormattingToolbar() {
   )
 }
 
-function ToolbarButton({ children }) {
+function ToolbarButton({ children }: ToolbarButtonProps) {
   return (
     <button className="w-8 h-8 flex items-center justify-center rounded text-muted hover:text-white transition-colors shrink-0">
       {children}
@@ -202,7 +226,7 @@ function FloatingAIMenu() {
 function MetaSidebar() {
   const [tags, setTags] = useState(INITIAL_TAGS)
 
-  function handleRemoveTag(tag) {
+  function handleRemoveTag(tag: string) {
     setTags((prev) => prev.filter((t) => t !== tag))
   }
 
@@ -232,7 +256,7 @@ function StatusSection() {
   )
 }
 
-function MetaRow({ icon, label, value, isText }) {
+function MetaRow({ icon, label, value, isText }: MetaRowProps) {
   return (
     <div className="flex items-center justify-between p-3.5 bg-surface-card border border-border rounded-lg">
       <span className="flex items-center gap-2">
@@ -244,7 +268,7 @@ function MetaRow({ icon, label, value, isText }) {
   )
 }
 
-function OrganizationSection({ tags, onRemoveTag }) {
+function OrganizationSection({ tags, onRemoveTag }: OrganizationSectionProps) {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Organization</h3>

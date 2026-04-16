@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import {
   SearchIcon,
@@ -7,7 +7,54 @@ import {
   ShareIcon,
   ExternalLinkIcon,
   SparklesIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface IconProps {
+  className?: string
+}
+
+interface Story {
+  source: string
+  time: string
+  title: string
+  tag: string
+}
+
+interface Category {
+  id: string
+  name: string
+  icon: React.ComponentType<IconProps>
+  posts: string
+  followers: string
+  description: string
+  isFollowing: boolean
+  tags: string[]
+  topNews: string
+  stories: Story[]
+}
+
+interface CategoryCardProps {
+  category: Category
+  isSelected: boolean
+  isFollowing: boolean
+  onSelect: () => void
+  onToggle: () => void
+}
+
+interface CategoryDetailProps {
+  category: Category
+  isFollowing: boolean
+  onToggle: () => void
+}
+
+interface ToggleProps {
+  isOn: boolean
+  onToggle: () => void
+}
 
 const CATEGORIES = [
   {
@@ -72,18 +119,18 @@ const CATEGORIES = [
 const TABS = ['All Categories', 'Following', 'Trending']
 
 export default function CategoriesPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
   const [activeTab, setActiveTab] = useState('All Categories')
   const [selectedId, setSelectedId] = useState('llm')
-  const [following, setFollowing] = useState(() => {
-    const map = {}
+  const [following, setFollowing] = useState<Record<string, boolean>>(() => {
+    const map: Record<string, boolean> = {}
     CATEGORIES.forEach((c) => { map[c.id] = c.isFollowing })
     return map
   })
 
   const selected = CATEGORIES.find((c) => c.id === selectedId)
 
-  const handleToggle = (id) => {
+  const handleToggle = (id: string) => {
     setFollowing((prev) => ({ ...prev, [id]: !prev[id] }))
   }
 
@@ -173,7 +220,7 @@ export default function CategoriesPage() {
   )
 }
 
-function CategoryCard({ category, isSelected, isFollowing, onSelect, onToggle }) {
+function CategoryCard({ category, isSelected, isFollowing, onSelect, onToggle }: CategoryCardProps) {
   const Icon = category.icon
 
   return (
@@ -219,7 +266,7 @@ function CategoryCard({ category, isSelected, isFollowing, onSelect, onToggle })
   )
 }
 
-function CategoryDetail({ category, isFollowing, onToggle }) {
+function CategoryDetail({ category, isFollowing, onToggle: _onToggle }: CategoryDetailProps) {
   const Icon = category.icon
 
   return (
@@ -311,7 +358,7 @@ function CategoryDetail({ category, isFollowing, onToggle }) {
   )
 }
 
-function Toggle({ isOn, onToggle }) {
+function Toggle({ isOn, onToggle }: ToggleProps) {
   return (
     <button
       onClick={(e) => { e.stopPropagation(); onToggle() }}
@@ -326,7 +373,7 @@ function Toggle({ isOn, onToggle }) {
   )
 }
 
-function BrainIcon({ className }) {
+function BrainIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 3C7.5 3 5 5 5 8C5 10 6 11.5 7 12.5V17H13V12.5C14 11.5 15 10 15 8C15 5 12.5 3 10 3Z" />
@@ -336,7 +383,7 @@ function BrainIcon({ className }) {
   )
 }
 
-function CodeIcon({ className }) {
+function CodeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7 5L2 10L7 15" />
@@ -346,7 +393,7 @@ function CodeIcon({ className }) {
   )
 }
 
-function ResearchIcon({ className }) {
+function ResearchIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 18 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 2H13L16 5V18H2V2H5Z" />
@@ -356,7 +403,7 @@ function ResearchIcon({ className }) {
   )
 }
 
-function ShieldIcon({ className }) {
+function ShieldIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2L3 6V11C3 15.5 7 19 12 20C17 19 21 15.5 21 11V6L12 2Z" />
@@ -365,7 +412,7 @@ function ShieldIcon({ className }) {
   )
 }
 
-function PlusIcon({ className }) {
+function PlusIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
       <path d="M6 1V11" />
@@ -374,7 +421,7 @@ function PlusIcon({ className }) {
   )
 }
 
-function MoreIcon({ className }) {
+function MoreIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 12" fill="currentColor">
       <circle cx="2" cy="6" r="1.5" />
@@ -384,7 +431,7 @@ function MoreIcon({ className }) {
   )
 }
 
-function TrendUpSmallIcon({ className }) {
+function TrendUpSmallIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 9L5 5L7 7L11 3" />
@@ -393,7 +440,7 @@ function TrendUpSmallIcon({ className }) {
   )
 }
 
-function FileSmallIcon({ className }) {
+function FileSmallIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 10 12" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 1H7L9 3V11H1V1Z" />
@@ -402,7 +449,7 @@ function FileSmallIcon({ className }) {
   )
 }
 
-function UsersSmallIcon({ className }) {
+function UsersSmallIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 16 12" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="6" cy="4" r="2.5" />
@@ -413,7 +460,7 @@ function UsersSmallIcon({ className }) {
   )
 }
 
-function FilterSmallIcon({ className }) {
+function FilterSmallIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M1 2H13L8.5 7.5V12L5.5 11V7.5L1 2Z" />

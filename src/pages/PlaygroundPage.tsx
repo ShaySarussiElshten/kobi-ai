@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import {
   MenuIcon,
@@ -13,7 +13,27 @@ import {
   ListOrderedIcon,
   FileIcon,
   SendIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface LeftPanelProps {
+  activeTool: string
+  onSelectTool: (id: string) => void
+}
+
+interface VersionItemProps {
+  label: string
+  time: string
+  preview: string
+  isCurrent?: boolean
+}
+
+interface ToolbarButtonProps {
+  children: ReactNode
+}
 
 const AI_TOOLS = [
   {
@@ -59,7 +79,7 @@ const VERSIONS = [
 ]
 
 export default function PlaygroundPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
   const [activeTool, setActiveTool] = useState('rewrite')
 
   return (
@@ -86,7 +106,7 @@ export default function PlaygroundPage() {
   )
 }
 
-function LeftPanel({ activeTool, onSelectTool }) {
+function LeftPanel({ activeTool, onSelectTool }: LeftPanelProps) {
   return (
     <div className="xl:w-80 xl:shrink-0 xl:border-r border-border bg-surface-elevated xl:flex xl:flex-col xl:h-full overflow-y-auto xl:overflow-hidden">
       <div className="border-b border-border p-5">
@@ -174,7 +194,7 @@ function CenterEditor() {
   )
 }
 
-function ToolbarButton({ children }) {
+function ToolbarButton({ children }: ToolbarButtonProps) {
   return (
     <button className="w-8 h-8 flex items-center justify-center rounded text-muted hover:text-white transition-colors">
       {children}
@@ -199,7 +219,7 @@ function RightPanel() {
   )
 }
 
-function VersionItem({ label, time, preview, isCurrent }) {
+function VersionItem({ label, time, preview, isCurrent }: VersionItemProps) {
   return (
     <div
       className={`flex flex-col gap-2 p-4 rounded-lg border ${

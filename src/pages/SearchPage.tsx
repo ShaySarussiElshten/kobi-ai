@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import {
   SearchIcon,
@@ -10,7 +10,34 @@ import {
   ExternalLinkIcon,
   MenuIcon,
   LoaderIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface ResultCardProps {
+  source: string
+  time: string
+  title: string[]
+  description: string
+  tags: string[]
+  avatar?: string
+  author?: string
+  hasSummary?: boolean
+  summary?: string[]
+  isExpanded: boolean
+  onToggleSummary: () => void
+}
+
+interface TabBarProps {
+  activeTab: number
+  onTabChange: (index: number) => void
+}
+
+interface HighlightProps {
+  children: ReactNode
+}
 
 const AUTHOR_1 = 'https://www.figma.com/api/mcp/asset/ad62e520-2859-4089-9e47-fe0ee2deb2c0'
 const AUTHOR_2 = 'https://www.figma.com/api/mcp/asset/8ce7752b-228b-47ee-aa24-1fb5b0936439'
@@ -69,9 +96,9 @@ const RESULTS = [
 ]
 
 export default function SearchPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
   const [activeTab, setActiveTab] = useState(0)
-  const [expandedSummary, setExpandedSummary] = useState(2)
+  const [expandedSummary, setExpandedSummary] = useState<number | null>(2)
 
   return (
     <>
@@ -159,7 +186,7 @@ function FilterChips() {
   )
 }
 
-function TabBar({ activeTab, onTabChange }) {
+function TabBar({ activeTab, onTabChange }: TabBarProps) {
   return (
     <div className="flex items-center justify-between mt-5 sm:mt-6 border-b border-border">
       <div className="flex gap-0">
@@ -191,13 +218,13 @@ function TabBar({ activeTab, onTabChange }) {
   )
 }
 
-function Highlight({ children }) {
+function Highlight({ children }: HighlightProps) {
   return (
     <span className="bg-accent/10 text-accent rounded px-1">{children}</span>
   )
 }
 
-function ResultCard({ source, time, title, description, tags, avatar, author, hasSummary, summary, isExpanded, onToggleSummary }) {
+function ResultCard({ source, time, title, description, tags, avatar, author, hasSummary, summary, isExpanded, onToggleSummary }: ResultCardProps) {
   return (
     <div className="flex flex-col gap-3 p-4 sm:p-5 rounded-xl border border-border bg-surface-elevated/60 backdrop-blur-sm">
       <div className="flex items-center justify-between">
@@ -225,7 +252,7 @@ function ResultCard({ source, time, title, description, tags, avatar, author, ha
             AI Summary
           </span>
           <ul className="flex flex-col gap-2 text-sm text-[#d4d4d8] leading-relaxed pl-4 list-disc mt-1">
-            {summary.map((point, i) => (
+            {summary!.map((point, i) => (
               <li key={i}>{point}</li>
             ))}
           </ul>

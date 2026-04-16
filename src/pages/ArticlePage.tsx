@@ -9,7 +9,11 @@ import {
   RewriteIcon,
   BoltIcon,
   MenuIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
 
 const HERO_IMAGE = 'https://www.figma.com/api/mcp/asset/28b753e4-67f6-4066-9a73-a931286eefe6'
 const AUTHOR_IMG = 'https://www.figma.com/api/mcp/asset/ad62e520-2859-4089-9e47-fe0ee2deb2c0'
@@ -29,7 +33,7 @@ const RELATED = [
 ]
 
 export default function ArticlePage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
 
   return (
     <>

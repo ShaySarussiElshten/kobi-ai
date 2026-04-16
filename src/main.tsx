@@ -2,16 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
-import App from './App.jsx'
-import FeedPage from './pages/FeedPage.jsx'
-import ArticlePage from './pages/ArticlePage.jsx'
-import CategoriesPage from './pages/CategoriesPage.jsx'
-import SearchPage from './pages/SearchPage.jsx'
-import PlaygroundPage from './pages/PlaygroundPage.jsx'
-import CreatePostPage from './pages/CreatePostPage.jsx'
-import MyPostsPage from './pages/MyPostsPage.jsx'
+import App from './App'
+import FeedPage from './pages/FeedPage'
+import ArticlePage from './pages/ArticlePage'
+import CategoriesPage from './pages/CategoriesPage'
+import SearchPage from './pages/SearchPage'
+import PlaygroundPage from './pages/PlaygroundPage'
+import CreatePostPage from './pages/CreatePostPage'
+import MyPostsPage from './pages/MyPostsPage'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>

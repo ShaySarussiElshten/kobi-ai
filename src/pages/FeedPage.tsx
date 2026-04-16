@@ -14,7 +14,19 @@ import {
   LoaderIcon,
   ExternalLinkIcon,
   MenuIcon,
-} from '../components/Icons.jsx'
+} from '../components/Icons'
+
+interface OutletContext {
+  onOpenSidebar: () => void
+}
+
+interface FeedCardProps {
+  source: string
+  time: string
+  title: string
+  description: string
+  tags: string[]
+}
 
 const HERO_IMAGE = 'https://www.figma.com/api/mcp/asset/d647a208-8b3f-429a-a079-d291b93b3814'
 
@@ -56,7 +68,7 @@ const READING_LIST = [
 ]
 
 export default function FeedPage() {
-  const { onOpenSidebar } = useOutletContext()
+  const { onOpenSidebar } = useOutletContext<OutletContext>()
 
   return (
     <>
@@ -166,7 +178,7 @@ function FeaturedCard() {
   )
 }
 
-function FeedCard({ source, time, title, description, tags }) {
+function FeedCard({ source, time, title, description, tags }: FeedCardProps) {
   return (
     <Link
       to="/article/featured"
